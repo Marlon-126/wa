@@ -1,0 +1,230 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #d69dd6;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.kuromi {
+    width: 120px;
+    height: auto;
+}
+
+.envelope img {
+    width: 150px;
+    animation: float 3s infinite ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+#countdown {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #8B0000;
+    text-align: center;
+}
+
+/* Estilo del contenedor */
+body {
+    background-color: #ffbddc;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.hearts-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 20px; /* Tamaño pequeño */
+    height: 20px; /* Tamaño pequeño */
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: floatUp 15s ease-in-out infinite; /* Animación más lenta */
+    opacity: 0;
+    bottom: 0;
+    left: calc(50% - 10px);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(-45deg) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-600px) rotate(-45deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+
+
+
+/* Nubes animadas */
+.clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cloud-image {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    opacity: 0.8;
+    animation: floatClouds 40s linear infinite;
+}
+
+.cloud-image-1 { top: 20%; left: 5%; width: 15%; animation-duration: 40s; }
+.cloud-image-2 { top: -20%; left: 48%; width: 20%; animation-duration: 45s; }
+.cloud-image-3 { top: 22%; left: 90%; width: 20%; animation-duration: 50s; }
+.cloud-image-4 { top: 58%; left: -10%; width: 45%; animation-duration: 60s; }
+.cloud-image-5 { top: 75%; left: 45%; width: 28%; animation-duration: 55s; }
+.cloud-image-6 { top: 58%; left: 75%; width: 45%; animation-duration: 60s; }
+
+@keyframes floatClouds {
+    0% { transform: translateX(-50px); }
+    50% { transform: translateX(50px); }
+    100% { transform: translateX(-50px); }
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .cloud-image { width: 120px; }
+    .cloud-image-4 { width: 60%; }
+    .cloud-image-5, .cloud-image-6 { width: 180px; }
+    .kuromi { width: 100px; }
+    .envelope img { width: 120px; }
+    #countdown { font-size: 16px; }
+}
+
+/* Animación de escala en el clic */
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.envelope img.clicked {
+    animation: clickAnimation 0.5s ease-in-out;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffbddc;
+    text-align: center;
+    color: #333;
+}
+
+/* Botones */
+#button-container {
+    margin-top: 10px;
+}
+
+button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+#yes-button {
+    background-color: #c3f4c8;
+}
+
+#no-button {
+    background-color: #f4c3c3;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Animaciones de botones */
+.expand-button {
+    transform: scale(1.5);
+}
+
+.shrink-button {
+    transform: scale(0.7);
+}
+
+.envelope img.open {
+    transform: rotateY(180deg);
+    transition: transform 1s ease-in-out;
+}

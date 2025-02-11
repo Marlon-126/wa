@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Carga</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="background">
+        <div class="hearts-container"></div> <!-- Contenedor para los corazones -->
+        <div class="clouds">
+            <!-- Nubes animadas -->
+            <img src="img/nube3.png" class="cloud-image cloud-image-1" alt="Nube 1">
+            <img src="img/nube3.png" class="cloud-image cloud-image-2" alt="Nube 2">
+            <img src="img/nube3.png" class="cloud-image cloud-image-3" alt="Nube 3">
+            <img src="img/nube1.png" class="cloud-image cloud-image-4" alt="Nube 4">
+            <img src="img/nube2.png" class="cloud-image cloud-image-5" alt="Nube 5">
+            <img src="img/nube1.png" class="cloud-image cloud-image-6" alt="Nube 6">
+        </div>
+
+        <div class="container">
+            <div class="image-container">
+                <img src="img/kuromi.png" alt="Kuromi 1" class="kuromi">
+                <div class="envelope">
+                    <img id="letter" src="img/carta.png" alt="Carta con corazón">
+                </div>
+                <img src="img/kuromi2.png" alt="Kuromi 2" class="kuromi">
+            </div>
+            <div id="countdown">Cargando...</div> <!-- Mensaje inicial corregido -->
+            <div id="button-container" class="hidden">
+                <button id="yes-button">Sí</button>
+                <button id="no-button">No</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+    <script>
+        let timeExpired = true;
+        const letter = document.getElementById("letter");
+        const buttonContainer = document.getElementById("button-container");
+        const yesButton = document.getElementById("yes-button");
+        const noButton = document.getElementById("no-button");
+
+        // Función para generar corazones animados
+        function createHeart() {
+            const heartsContainer = document.querySelector(".hearts-container");
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+
+            // Posición aleatoria en el ancho de la pantalla
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+            heartsContainer.appendChild(heart);
+
+            // Remover el corazón una vez que la animación termine
+            heart.addEventListener("animationend", () => {
+                heart.remove();
+            });
+        }
+
+        // Genera corazones periódicamente
+        setInterval(createHeart, 500);
+
+        // Mostrar mensaje y botones si ha expirado el tiempo
+        if (timeExpired) {
+            setTimeout(() => {
+                document.getElementById("countdown").innerText = "¿Deseas recibir esta carta?";
+                buttonContainer.classList.remove("hidden");
+            }, 2000);
+        }
+
+        // Ajusta el tamaño de los botones
+        function adjustButtonSize(button, increment) {
+            let currentSize = parseFloat(window.getComputedStyle(button).fontSize);
+            let newSize = currentSize + increment;
+            if (newSize > 10 && newSize < 40) { // Evita que el botón sea demasiado pequeño o grande
+                button.style.fontSize = newSize + 'px';
+            }
+        }
+
+        // Animación y redirección al aceptar la carta
+        yesButton.addEventListener("click", () => {
+            letter.classList.add("open-letter");
+            adjustButtonSize(yesButton, 4);
+            adjustButtonSize(noButton, -4);
+            setTimeout(() => {
+                window.location.href = "carta.html"; // Redirige a carta.html
+            }, 1000); // Retraso para ver la animación de apertura
+        });
+
+        // Mensaje al rechazar la carta
+        noButton.addEventListener("click", () => {
+            adjustButtonSize(noButton, -4);
+            adjustButtonSize(yesButton, 4);
+            document.getElementById("countdown").innerText = "La carta permanecerá cerrada.";
+        });
+    </script>
+</body>
+</html>

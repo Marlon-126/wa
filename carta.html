@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para la mujer más hermosa</title>
+    <link rel="stylesheet" href="carta.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #ffbddc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        /* Contenedor de la carta */
+        .letter-container {
+            background-color: white;
+            width: 70%;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+            line-height: 1.8;
+            margin: 100px auto;
+            text-align: justify;
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #000000;
+        }
+        .date {
+            text-align: right;
+            color: #757575;
+            font-size: 1em;
+        }
+        .signature {
+            text-align: left;
+            margin-top: 40px;
+            font-style: italic;
+        }
+        p {
+            margin: 15px 0;
+            text-align: justify;
+            font-size: 1.1em;
+        }
+        /* Alineación correcta del texto, línea y flores */
+        .text-with-images {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 20px;
+            justify-content: flex-start;
+        }
+        .linea-decorativa {
+            width: 40px;
+            height: auto;
+        }
+        .flowers {
+            width: 90px;
+            height: auto;
+        }
+        /* Ajuste de la sección de "Lento" */
+        .lento-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .lento-section p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .lento-section img {
+            width: 200px; /* Tamaño reducido */
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        /* Ajuste del tamaño de Snoopy */
+        .snoopy-heart {
+            display: block;
+            width: 120px; /* Aumentado */
+            height: auto;
+            margin: 20px auto;
+        }
+ /* NUBES */
+.nube {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    opacity: 0.7;
+    animation: moverNubes 15s linear infinite alternate;
+}
+
+/* Nubes superiores */
+.nube:nth-child(1) {
+    top: 5%;
+    left: 10%;
+    animation-duration: 12s;
+}
+
+.nube:nth-child(2) {
+    top: 10%;
+    right: 20%;
+    animation-duration: 14s;
+}
+
+/* Nubes intermedias */
+.nube:nth-child(3) {
+    top: 35%;
+    left: 40%;
+    animation-duration: 16s;
+}
+
+.nube:nth-child(4) {
+    top: 45%;
+    right: 30%;
+    animation-duration: 18s;
+}
+
+/* Nubes más bajas */
+.nube:nth-child(5) {
+    top: 60%;
+    left: 50%;
+    animation-duration: 20s;
+}
+
+.nube:nth-child(6) {
+    top: 70%;
+    right: 40%;
+    animation-duration: 22s;
+}
+
+@keyframes moverNubes {
+    from {
+        transform: translateX(-20px);
+    }
+    to {
+        transform: translateX(20px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- NUBES -->
+    <div class="nube"><img src="img2/nube1.png" alt="Nube"></div>
+    <div class="nube"><img src="img2/nube2.png" alt="Nube"></div>
+    <div class="nube"><img src="img2/nube3.png" alt="Nube"></div>
+    <div class="nube"><img src="img2/nube1.png" alt="Nube"></div>
+    <div class="nube"><img src="img2/nube2.png" alt="Nube"></div>
+    <div class="nube"><img src="img2/nube3.png" alt="Nube"></div>
+    
+
+    <div class="letter-container">
+        <h1>Para la mujer más hermosa</h1>
+        <p class="date">14 de febrero de 2025</p>
+        
+        <p>Posiblemente no hablemos mucho o no te escriba tanto como antes, pero en todo este tiempo no he podido dejar de pensarte.</p>
+        <p>De repente te he molestado escribiéndote tonterías, pero quiero que sepas que te has vuelto alguien interesante para mí en todo este tiempo.</p>
+        <p>No sé cuál será tu opinión sobre mí. Lo más probable es que pienses que soy fumón y medio loco, pero esto lo hago para que sepas lo que me importas.</p>
+        <p>Que la distancia no haga olvidar que te quiero y que el silencio no te haga pensar que me olvidé de ti ❤️</p>
+
+        <div class="text-with-images">
+            <span>Florcitas para ti, te las debo para cuando vuelvas.</span>
+            <img src="img2/Linea.png" alt="Línea decorativa" class="linea-decorativa">
+            <img src="img2/flores amarillas.png" alt="Flores" class="flowers">
+        </div>
+
+        <div class="lento-section">
+            <p>Esta canción me hace acordar a ti</p>
+            <img src="img2/Lento.png" alt="Lento">
+        </div>
+        
+        <p class="signature">Con cariño❤️</p>
+        <img src="img2/snoopy_corazon.png" alt="Snoopy con corazón" class="snoopy-heart">
+    </div>
+</body>
+</html>
